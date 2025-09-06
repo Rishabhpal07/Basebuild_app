@@ -19,12 +19,12 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user'));
 app.use('/api/message',require('./routes/message'))
 
-if(process.env.NODE_ENV==="production" ){
-  app.use (express.static(path.join(__dirname, "../client/dist")));
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/dist")));
 
- app.get ("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client","dist", "index.html"))
-});
+  app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
+  });
 }
 
 async function main() {

@@ -2,7 +2,6 @@ const express = require("express");
 const { usermiddleware } = require("../midleware/authMiddle");
 const { Message } = require("../model/message");
 const User = require("../model/user");
-const { connections } = require("mongoose");
 const cloudinary = require("../lib/cloudinary");
 const upload = require("../midleware/upload");
 const fs=require("fs");

@@ -1,7 +1,6 @@
 const express=require("express");
-const { auth, usermiddleware } = require("../midleware/authMiddle");
+const { usermiddleware } = require("../midleware/authMiddle");
 const User = require("../model/user");
-const { object } = require("zod");
 const upload = require("../midleware/upload");
 const router=express.Router();
 const cloudinary = require("../lib/cloudinary");
@@ -151,16 +150,16 @@ router.get("/connections",usermiddleware, async (req, res) => {
     }
   });
 
-  router.get("/getOtherProfile/:id",usermiddleware,async (req,res)=>{
+  router.get("/getOtherProfile/:id", usermiddleware, async (req,res) => {
     try {
-        const Id=req.params.id;
-         const response=await User.findById(Id);
-         if(!response)return
-         res.status(200).json(response)
+      const Id = req.params.id;
+      const response = await User.findById(Id);
+      if(!response) return res.status(404).json({message: "User not found"}); // Add proper return
+      res.status(200).json(response)
     } catch (err) {
-      res.status(500).json({error:err.message})
+      res.status(500).json({error: err.message})
     }
   })
-   
+  
   module.exports = router;
 
