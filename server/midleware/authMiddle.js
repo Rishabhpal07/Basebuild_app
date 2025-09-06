@@ -16,7 +16,7 @@ async function usermiddleware(req,res,next) {
        req.user=decodedId;
        next();
     } catch (error) {
-        console.error("JWT Verification Error:", err.message);
+        console.error("JWT Verification Error:", error.message);
         return res.status(403).json({ message: "Invalid or expired token" });  
     }
 }
