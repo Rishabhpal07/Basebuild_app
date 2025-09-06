@@ -6,8 +6,6 @@ require('dotenv').config();
 
 const path=require("path")
 
-const __dirname = path.resolve();
-
  app.use(express.json());
  app.use(
   cors({
