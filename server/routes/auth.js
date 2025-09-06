@@ -82,7 +82,7 @@ router.post("/register", async (req, res) => {
       }
     });
 
-    router.get("/check",usermiddleware,async (resq,res)=>{
+    router.get("/check",usermiddleware,async (req,res)=>{
       try {
         res.status(200).json("user is authenticated")
       } catch (error) {
