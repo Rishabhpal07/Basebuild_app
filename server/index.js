@@ -21,7 +21,7 @@ app.use('/api/user', require('./routes/user'));
 app.use('/api/message',require('./routes/message'))
 
 if(process. env.NODE_ENV==="production" ){
-  app-use (express.static(path.join(_dirname, "../client/dist")));
+  app.use (express.static(path.join(_dirname, "../client/dist")));
 
  app.get ("*", (req, res) => {
   res.sendFile(path.join(_dirname, "../client","dist", "index.html"))
