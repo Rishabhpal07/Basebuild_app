@@ -14,7 +14,6 @@ const path=require("path")
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   })
 );
-const __dirname = path.resolve();
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user'));
